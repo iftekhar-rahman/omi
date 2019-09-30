@@ -1,0 +1,202 @@
+/*****************************
+34. Table CSS
+*****************************/
+
+.table{
+	@extend %tableborder;
+	thead{
+		th{
+			text-transform: capitalize;
+			@include white-space(nowrap);
+			border-bottom: 0;
+			color: $body-color;
+			text-transform: uppercase;
+			font-weight: 500;
+			padding: 2rem 1.5rem;
+			font-family: $heading-font;
+		}		
+	}
+	td, th{
+		vertical-align: middle;
+		text-align: center;
+		padding: 1.5rem;
+		@extend %tablecolborder;
+	}
+
+	td{
+		h3{
+			a{
+				font-weight: 500;
+				color: $body-color;
+			}
+		}
+		a{
+			&.delete{
+				color: $body-color;
+			}
+		}
+		.quantity{
+			margin: 0 auto;
+			width: 8.7rem;
+			.qtybutton{
+				background: #2e2e2e;
+			}
+		}
+		&.cart-product-price{
+			font-size: 1.8rem;
+			line-height: 1.6;
+			@extend %primary-color;
+		}
+		img{
+			width: 7.5rem;
+		}
+	}
+}
+.cart-calculator-table{
+	th{
+		width: 40%;
+		text-transform: uppercase;
+		text-align: left;
+		@include breakpoint(xsmall){
+			width: 25%;
+		}
+	}
+	th, td{
+		border: none;
+		padding: 1rem 0;
+		color: $body-color;
+		vertical-align: top;
+		font-family: $heading-font;
+	}
+	td{
+		text-align: right;
+		.price-ammount{
+			font-weight: 500;
+			@extend %primary-color;
+		}
+		.expand-calculator{
+			display: block;
+			color: $color-red-light;
+			margin: 1rem 0;
+		}
+	}
+	.cart-total{
+		th, td{
+			font-size: 2rem;
+			@include breakpoint(xsmall){
+				font-size: 1.6rem;
+			}
+		}
+	}
+}
+.order-table{
+	.table{
+		tr{
+			&.order-total{
+				th{
+					font-size: 1.8rem;
+				}
+				td{
+					font-weight: 500;
+					border-bottom: none;
+					font-size: 1.8rem;
+					span{
+						@extend %primary-color;
+					}
+				}
+			}
+		}
+		tfoot{
+			th{
+				border-top: 1px solid $body-color;
+				border-right: 1px solid $body-color;
+				font-family: $heading-font;
+			}
+		}
+	}
+} 
+.compare-table{
+	.table{
+		th{
+			text-transform: capitalize;
+			border-bottom: none;
+			border-right: 1px solid $border-color;
+			color: $heading-color;
+			font-family: $heading-font;
+			font-weight: 500;
+			font-size: 1.6rem;
+		}	
+		.first-column{
+			min-width: 20rem;
+		}
+		td{
+			min-width: 14rem;
+			img{
+				max-width: 20rem;
+			}
+			.price{
+				.sale-price{
+					@extend %sale-price-1;
+				}
+				.regular-price{
+					@extend %regular-price-common;
+					@extend %regular-price-1;
+					font-size: 1.5rem;
+					margin-right: .4rem;
+				}
+			}
+			h3{
+				a{
+					font-weight: 500;
+					font-size: 1.6rem;
+					color: $heading-color;
+				}
+			}
+			.ratings{
+				text-align: center;
+				a{
+					display: inline-block;
+				}
+				i.fa{
+					color: $color-yellow;
+				}
+				i.disabled{
+					color: $color-white-light;
+				}
+				span{
+					font-size: 1.4rem;
+					font-weight: 300;
+					margin-top: 1rem;
+					display: block;
+				}
+			}
+			.summary{
+				min-width: 14rem;
+			}
+			.delete{
+				color: $primary-color;
+			}
+		}
+	}
+}
+
+.account-table{
+	.table{
+		background: $bg-color-2;
+		th{
+			color: $heading-color;
+		}
+		td{
+			&.wide-column{
+				min-width: 21rem;
+				@include breakpoint(medium){
+					min-width: 20rem;
+				}
+			}
+		}
+	}
+}
+
+.wide-column{
+	min-width: 21rem;
+}

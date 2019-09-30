@@ -1,0 +1,98 @@
+/*****************************
+10. Header CSS
+*****************************/
+
+
+
+.header{
+	@extend %posrelative;
+	&-top{
+		padding-top: .8rem;
+		padding-bottom: .8rem;
+		border-bottom: 1px solid $border-color;
+		&-nav{
+			@include breakpoint(medium){
+				padding-top: .8rem;
+			}
+			@include breakpoint(xsmall){
+				@include align-items(center);
+				@include flex-wrap(wrap);
+			}
+
+			&__item{
+				padding: 0 2rem ;
+				border-left: 1px solid $border-color;
+				line-height: 1.2;
+
+				&:last-child{
+					border-right: 1px solid $border-color;
+					@include breakpoint(xsmall){
+						border-right: 0;
+					}
+				}
+				@include breakpoint(xsmall){
+					border-left: 0;
+					border-right: 0;
+					@include flex-basis(30%);
+					padding: 0;
+				}
+
+				&.currency-selector{
+					@include breakpoint(xsmall){
+						text-align: right;
+					}
+					.dropdown-menu{
+						@include breakpoint(xsmall){
+							right: -17px !important;
+							margin-right: 0;
+						}
+					}
+				}
+				&.user-info{
+					@include breakpoint(xsmall){
+						@include flex-basis(41%);
+						text-align: center;
+						margin-top: 1rem;
+					}
+				}
+			}
+		}
+		.language-selector{
+			.dropdown-toggle{
+				img{
+					margin-top: -2px;
+				}
+			}	
+		}
+	}
+	&-middle{
+		padding: 3.6rem 0;
+		border-bottom: 1px solid $border-color;
+	}
+}
+.contact-info{
+	@include flexbox;
+	@include align-items(center);
+	@include breakpoint(xsmall){
+		@include justify-content(center);
+		margin-bottom: 3rem;
+	}
+	p{
+		margin-bottom: 0;
+		@extend %primary-color;
+		font-size: 1.4rem;
+		padding-left: 1.5rem;
+		line-height: 1;
+	}
+}
+.sticky-header{
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999999;
+    margin: 0;
+    background-color: $bg-color;
+    @include animation(fadeInDown .8s ease-in-out);
+    @include box-shadow(0 1px 3px rgba(0,0,0,.14));
+}
